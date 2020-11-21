@@ -7,6 +7,32 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strict": true
-  }
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+    "*": ["src/*"],
+    "tests": ["tests/*"],
+      "@assets": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@components": ["src/components/*"],
+      "@atoms/*": ["src/components/atoms/*"],
+      "@atoms": ["src/components/atoms/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@molecules": ["src/components/molecules/*"],
+      "@organisms/*": ["src/components/organisms/*"],
+      "@organisms": ["src/components/organisms/*"],
+      "@navigations/*": ["src/navigations/*"],
+      "@navigations": ["src/navigations/*"],
+      "@scenes/*": ["src/scenes/*"],
+      "@scenes": ["src/scenes/*"],
+      "@services/*": ["src/services/*"],
+      "@services": ["src/services/*"],
+      "@styles/*": ["src/styles/*"],
+      "@styles": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"],
+      "@utils": ["src/utils/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts"]
 }
