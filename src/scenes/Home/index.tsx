@@ -1,10 +1,9 @@
 import React from "react";
 import {View, Text, StyleSheet} from 'react-native';
-import {FONT_BOLD, FONT_SIZE_16} from "styles/typography";
-import Props from "scenes/home/types";
-import {margin} from "styles/mixins";
+import Props from "scenes/Home/types";
 // @ts-ignore
 import {ViewButton} from "@atoms";
+import {Mixins, Typography} from "styles";
 
 const HomeScreen: React.FC<Props> = ({ route, navigation }) => {
     React.useEffect(() => {
@@ -17,10 +16,10 @@ const HomeScreen: React.FC<Props> = ({ route, navigation }) => {
         <View style={styles.container}>
             <Text style={styles.text}>Home Screen</Text>
             <ViewButton style={styles.viewGap} hook={['Go to Details', () => {
-                // Navigate to details route with params
+                // Navigate to Details route with params
                 navigation.navigate('Details', {
                     itemId: Math.floor(Math.random() * 100),
-                    details: 'sampaul details'
+                    details: 'sampaul Details'
                 });
             }]} />
             <ViewButton style={styles.viewGap} hook={['Go to Tabs', () => navigation.navigate('Tabs')]}/>
@@ -28,7 +27,8 @@ const HomeScreen: React.FC<Props> = ({ route, navigation }) => {
                 style={styles.viewGap}
                 hook={['Go to Tabs Messages', () => navigation.navigate('Tabs', {screen: 'Messages'})]}
             />
-            <ViewButton style={styles.viewGap} hook={['Create post', () => navigation.navigate('CreatePost')]}/>
+            {/*<ViewButton style={styles.viewGap} hook={['Create post', () => navigation.navigate('CreatePost')]}/>*/}
+            <ViewButton style={styles.viewGap} title='Create post' onPress={() => navigation.navigate('CreatePost')}/>
             { route.params?.post ? (<Text style={styles.viewGap}>From CreatePostScreen: {route.params.post}</Text>) : null }
         </View>
     );
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        ...FONT_BOLD,
-        fontSize: FONT_SIZE_16
+        ...Typography.FONT_BOLD,
+        fontSize: Typography.FONT_SIZE_16
     },
     viewGap: {
-        ...margin(8, 0, 0, 0)
+        ...Mixins.margin(8, 0, 0, 0)
     }
 });
 

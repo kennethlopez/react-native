@@ -1,21 +1,21 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "scenes/home";
-import DetailsScreen from "scenes/details";
-import CreatePostScreen from "scenes/create-post";
-import {PRIMARY} from "styles/colors";
-import TabsScreen from "scenes/tabs";
-import ModalFullScreen from "scenes/modal-full";
+import {Colors} from "styles";
+import CreatePostScreen from "scenes/CreatePost";
+import HomeScreen from "scenes/Home";
+import DetailsScreen from "scenes/Details";
+import TabsScreen from "scenes/Tabs";
+import ModalFullScreen from "scenes/ModalFull";
 
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
 
 const stackNavigatorScreenOptions = {
     headerStyle: {
-        backgroundColor: PRIMARY
+        backgroundColor: Colors.PRIMARY
     },
-    headerTintColor: '#fff'
+    headerTintColor: Colors.WHITE
 }
 
 const MainStackScreen = () => (
@@ -30,7 +30,7 @@ const MainStackScreen = () => (
 export default function App() {
     return (
         <NavigationContainer>
-            <RootStack.Navigator mode="modal" headerMode="none">
+            <RootStack.Navigator mode="modal" headerMode="none" initialRouteName="Main">
                 <RootStack.Screen name="Main" component={MainStackScreen} />
                 <RootStack.Screen name="ModalFull" component={ModalFullScreen} />
             </RootStack.Navigator>

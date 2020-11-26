@@ -1,10 +1,9 @@
 import React from "react";
-import {View, Text, StyleSheet, Button} from 'react-native';
-import {FONT_BOLD, FONT_SIZE_16} from "styles/typography";
-import {margin} from "styles/mixins";
-import Props from "scenes/details/types";
+import {View, Text, StyleSheet} from 'react-native';
+import Props from "scenes/Details/types";
 // @ts-ignore
 import {ViewButton} from "@atoms/";
+import {Mixins, Typography} from "styles";
 
 const DetailsScreen: React.FC<Props> = ({ route, navigation, navigation: {setParams} }) => {
     const { itemId, details } = route.params;
@@ -25,7 +24,7 @@ const DetailsScreen: React.FC<Props> = ({ route, navigation, navigation: {setPar
             <ViewButton style={styles.button} hook={['Update Params', () => {
                 setParams({
                     itemId: Math.floor(Math.random() * 100),
-                    details: 'updated sampaul details'
+                    details: 'updated sampaul Details'
                 })
             }]} />
         </View>
@@ -40,11 +39,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        ...FONT_BOLD,
-        fontSize: FONT_SIZE_16
+        ...Typography.FONT_BOLD,
+        fontSize: Typography.FONT_SIZE_16
     },
     button: {
-        ...margin(8, 0, 0, 0)
+        ...Mixins.margin(8, 0, 0, 0)
     }
 });
 

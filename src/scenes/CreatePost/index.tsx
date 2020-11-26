@@ -1,11 +1,9 @@
 import React from "react";
 import {View, StyleSheet, TextInput} from 'react-native';
-import {boxShadow, margin, padding, WINDOW_WIDTH} from "styles/mixins";
-import {WHITE} from "styles/colors";
 // @ts-ignore
 import {ViewButton} from "@atoms";
-import Props from "scenes/create-post/types";
-import {SCALE_16} from "styles/spacing";
+import Props from "scenes/CreatePost/types";
+import {Colors, Mixins, Spacing} from "styles";
 
 const CreatePostScreen: React.FC<Props> = ({ navigation }) => {
     const [postText, setPostText] = React.useState('');
@@ -18,7 +16,7 @@ const CreatePostScreen: React.FC<Props> = ({ navigation }) => {
                 style={styles.textInput}
                 value={postText}
                 onChangeText={setPostText}/>
-            <ViewButton style={styles.button} hook={['Done', () => navigation.navigate('Home', { post: postText })]} />
+            <ViewButton disabled={!postText.length} style={styles.button} hook={['Done', () => navigation.navigate('Home', { post: postText })]} />
         </View>
     );
 }
@@ -26,20 +24,20 @@ const CreatePostScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: WHITE,
+        backgroundColor: Colors.WHITE,
         alignItems: 'center',
         justifyContent: 'center',
     },
     button: {
-        ...margin(16, 0, 0, 0)
+        ...Mixins.margin(16, 0, 0, 0)
     },
     textInput: {
         height: 200,
-        width: (WINDOW_WIDTH - SCALE_16 * 2),
-        backgroundColor: WHITE,
+        width: (Mixins.WINDOW_WIDTH - Spacing.SCALE_16 * 2),
+        backgroundColor: Colors.WHITE,
         textAlignVertical: "top",
-        ...padding(SCALE_16, SCALE_16, SCALE_16, SCALE_16),
-        ...boxShadow()
+        ...Mixins.padding(Spacing.SCALE_16, Spacing.SCALE_16, Spacing.SCALE_16, Spacing.SCALE_16),
+        ...Mixins.boxShadow()
     }
 });
 

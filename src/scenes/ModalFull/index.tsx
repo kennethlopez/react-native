@@ -1,10 +1,9 @@
 import React from "react";
-import Props from "scenes/modal-full/types";
+import Props from "scenes/ModalFull/types";
 import {StyleSheet, View, Text} from "react-native";
-import {WHITE} from "styles/colors";
 // @ts-ignore
 import {ViewButton} from "@atoms";
-import {margin, scaleSize} from "styles/mixins";
+import {Colors, Mixins} from "styles";
 
 const ModalFullScreen: React.FC<Props> = ({navigation}) => (
     <View style={styles.container}>
@@ -17,15 +16,15 @@ const ModalFullScreen: React.FC<Props> = ({navigation}) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: WHITE,
+        backgroundColor: Colors.WHITE,
         alignItems: 'center',
         justifyContent: 'center',
     },
     text: {
-        fontSize: scaleSize(30)
+        fontSize: Mixins.scaleSize(30)
     },
     viewGap: {
-        ...margin(8, 0, 0, 0)
+        ...Mixins.margin(8, 0, 0, 0)
     }
 });
 

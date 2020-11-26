@@ -1,10 +1,9 @@
 import React from "react";
 import {View, StyleSheet, Text} from 'react-native';
-import {WHITE} from "styles/colors";
-import Props from "scenes/feed/types";
+import Props from "scenes/Feed/types";
 // @ts-ignore
 import {ViewButton} from "@atoms";
-import {margin} from "styles/mixins";
+import {Colors, Mixins} from "styles";
 
 const FeedScreen: React.FC<Props> = ({navigation}) => (
     <View style={styles.container}>
@@ -16,12 +15,12 @@ const FeedScreen: React.FC<Props> = ({navigation}) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: WHITE,
+        backgroundColor: Colors.WHITE,
         alignItems: 'center',
         justifyContent: 'center',
     },
     viewGap: {
-        ...margin(8, 0, 0, 0)
+        ...Mixins.margin(8, 0, 0, 0)
     }
 });
 

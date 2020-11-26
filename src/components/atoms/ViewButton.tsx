@@ -12,8 +12,8 @@ export interface Props extends ButtonProps {
 const ViewButton: React.FC<Props> = (props) => {
     const style = props.style;
     let title: string;
-    let action: Function;
-    if (props?.hook) {
+    let action: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+    if (props.hook) {
         [title, action] = props.hook;
     } else {
         title = props.title;
@@ -21,7 +21,7 @@ const ViewButton: React.FC<Props> = (props) => {
     }
     return (
         <View style={style}>
-            <Button {...props} title={title} onPress={() => action()} />
+            <Button {...props} title={title} onPress={action} />
         </View>
     );
 };

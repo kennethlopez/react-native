@@ -1,7 +1,7 @@
 import React from "react";
 import {View, StyleSheet, Text} from 'react-native';
-import {WHITE} from "styles/colors";
-import Props from "scenes/messages/types";
+import Props from "scenes/Messages/types";
+import {Colors} from "styles";
 
 const MessagesScreen: React.FC<Props> = () => (
     <View style={styles.container}>
@@ -12,7 +12,7 @@ const MessagesScreen: React.FC<Props> = () => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: WHITE,
+        backgroundColor: Colors.WHITE,
         alignItems: 'center',
         justifyContent: 'center',
     }

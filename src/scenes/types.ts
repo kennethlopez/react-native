@@ -1,7 +1,7 @@
-import {DetailsParams} from "scenes/details/types";
-import {HomeParams} from "scenes/home/types";
-import {TabsParams} from "scenes/tabs/types";
-import {FeedParams} from "scenes/feed/types";
+import {DetailsParams} from "scenes/Details/types";
+import {HomeParams} from "scenes/Home/types";
+import {TabsParams} from "scenes/Tabs/types";
+import {FeedParams} from "scenes/Feed/types";
 
 export type RootStackParamList = {
     Home: HomeParams | undefined,
